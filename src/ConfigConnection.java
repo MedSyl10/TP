@@ -6,7 +6,9 @@
 */
 
 import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -72,18 +74,20 @@ public class ConfigConnection {
    * @param mdp mot de passe de l'utilisateur.
    * @return une connexion � la base.
    */
-  public static Connection getConnection(String nomFichierProp,
-                                         String utilisateur,
-                                         String mdp)
+  public static Connection getConnection()
       throws IOException, ClassNotFoundException, SQLException {
     Properties props = new Properties();
-    URL urlFichierProp = ConfigConnection.class.getResource(nomFichierProp);
-    BufferedInputStream bis = null;
+    String nomFichierProp = "C:\\Users\\THINKPAD\\workspace\\TP\\config.properties";
+	//URL urlFichierProp = ConfigConnection.class.getResource(nomFichierProp );
+    //BufferedInputStream bis = null;
+    InputStream bis = null;
     try {
-      bis = new BufferedInputStream(urlFichierProp.openStream());
+      bis = new FileInputStream(nomFichierProp);
       props.load(bis);
       String driver = props.getProperty("driver");
       String url = props.getProperty("url");
+      String utilisateur = props.getProperty("utilisateur");
+      String mdp = props.getProperty("mdp");
      
       Class.forName(driver);
       

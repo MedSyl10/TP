@@ -15,13 +15,13 @@ public class CreerDepartement {
         DatabaseMetaData dbmd;
         
     	// Code using the ConfigConnection class
-		String username = argv[0];
-		String password = argv[1];
-		String fichierProp = argv[2];
+		//String username = argv[0];
+		//String password = argv[1];
+		//String fichierProp = argv[2];
 	
         try {
             // obtention de la connexion
-            _cx = ConfigConnection.getConnection(fichierProp,username,password);
+            _cx = ConfigConnection.getConnection();
    
             _cx.setAutoCommit(false);
 

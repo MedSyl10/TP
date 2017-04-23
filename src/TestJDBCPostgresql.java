@@ -43,7 +43,7 @@ public class TestJDBCPostgresql
 		String password = argv[1];
 		String fichierProp = argv[2];
 		System.out.println("Username=" +username + " Passwd="+password+" fichierProp="+fichierProp+"\n");
-		db = ConfigConnection.getConnection(fichierProp,username,password);
+		db = ConfigConnection.getConnection();
 		
 		
 		/* AUTOCOMMIT: If set to true, PostgreSQL will automatically do 
