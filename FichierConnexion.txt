@@ -1,0 +1,2 @@
+driver = org.postgresql.Driver
+url = jdbc:postgresql://nom_serveur_SGBD/projet_xxx
